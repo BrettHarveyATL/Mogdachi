@@ -1,0 +1,38 @@
+<h1 class="jumbotron text-center">Welcome to the Play Ground!</h1>
+<div class="stats">
+    <h4>Fullness: @ViewBag.Fullness</h4>
+    <h4>Happiness: @ViewBag.Happiness</h4>
+    <h4>Meals: @ViewBag.Meals</h4>
+    <h4>Energy: @ViewBag.Energy</h4>
+</div>
+<div id="main">
+    @{
+        if (ViewBag.Energy >= 100 && ViewBag.Happiness >= 100 && ViewBag.Fullness >= 100)
+        {
+            <img src="~/images/mog2.png" alt="Moogle" />
+            <div class="stats">
+                <h1>You Win!</h1>
+                <a href="/TryAgain" class="btn btn-primary">Try Again?</a>
+            </div>
+        }
+        else if (ViewBag.Energy == 0 || ViewBag.Happiness == 0 || ViewBag.Fullness == 0)
+        {
+            <img src="~/images/mog3.png" alt="Moogle" />
+            <h1 class="text-danger">Oh No!!! @ViewBag.Name died!</h1>
+            <div class="stats">
+            <a href="/Quit" class="btn btn-danger">Quit</a>
+            </div>
+        }
+        else
+        {
+            <img src="~/images/mog1.png" alt="Moogle" />
+            <div class="stats">
+                <a href="Feed" class="btn btn-light m-3">Feed</a>
+                <a href="Play" class="btn btn-light m-3">Play</a>
+                <a href="Work" class="btn btn-light m-3">Work</a>
+                <a href="Sleep" class="btn btn-light m-3">Sleep</a>
+            </div>
+        }
+    }
+
+</div>
